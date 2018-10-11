@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include <zconf.h>
+#include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>
+pid_t fork(void);
 
 int solve(int i, int e, const int arr[]) {
     int s = 0;
