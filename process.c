@@ -11,7 +11,6 @@ int solve(int i, int e, const int arr[]) {
     }
     return s;
 }
-
 int main() {
     int s;
     int sum;
@@ -46,7 +45,7 @@ int main() {
     if (pid == 0) {
         s = solve(0, 100, arr);
         write(p10[1], &s, sizeof(s));
-//        close(p10[1]);
+        close(p10[1]);
         exit(1);
     } else {
         pid = fork();
@@ -54,7 +53,7 @@ int main() {
 
             s = solve(100, 200, arr);
             write(p1[1], &s, sizeof(s));
-//            close(p1[1]);
+            close(p1[1]);
             exit(1);
         } else {
             pid = fork();
@@ -62,7 +61,7 @@ int main() {
 
                 s = solve(200, 300, arr);
                 write(p2[1], &s, sizeof(s));
-//                close(p2[1]);
+                close(p2[1]);
                 exit(1);
             } else {
                 pid = fork();
@@ -70,7 +69,7 @@ int main() {
 
                     s = solve(300, 400, arr);
                     write(p3[1], &s, sizeof(s));
-//                    close(p3[1]);
+                    close(p3[1]);
                     exit(1);
                 } else {
                     pid = fork();
@@ -78,7 +77,7 @@ int main() {
 
                         s = solve(400, 500, arr);
                         write(p4[1], &s, sizeof(s));
-//                        close(p4[1]);
+                        close(p4[1]);
                         exit(1);
                     } else {
                         pid = fork();
@@ -86,7 +85,7 @@ int main() {
 
                             s = solve(500, 600, arr);
                             write(p5[1], &s, sizeof(s));
-//                            close(p5[1]);
+                            close(p5[1]);
                             exit(1);
                         } else {
                             pid = fork();
@@ -94,7 +93,7 @@ int main() {
 
                                 s = solve(600, 700, arr);
                                 write(p6[1], &s, sizeof(s));
-//                                close(p6[1]);
+                                close(p6[1]);
                                 exit(1);
                             } else {
                                 pid = fork();
@@ -102,21 +101,21 @@ int main() {
 
                                     s = solve(700, 800, arr);
                                     write(p7[1], &s, sizeof(s));
-//                                    close(p7[1]);
+                                    close(p7[1]);
                                     exit(1);
                                 } else {
                                     pid = fork();
                                     if (pid == 0) {
                                         s = solve(800, 900, arr);
                                         write(p8[1], &s, sizeof(s));
-//                                        close(p8[1]);
+                                        close(p8[1]);
                                         exit(1);
                                     } else {
                                         pid = fork();
                                         if (pid == 0) {
                                             s = solve(900, 1000, arr);
                                             write(p9[1], &s, sizeof(s));
-//                                            close(p9[1]);
+                                            close(p9[1]);
                                             exit(1);
                                         }
                                     }
@@ -166,16 +165,16 @@ int main() {
     read(p10[0], &sm, sizeof(sm));
     sum = sum + sm;
 
-//    close(p1[0]);
-//    close(p2[0]);
-//    close(p3[0]);
-//    close(p4[0]);
-//    close(p5[0]);
-//    close(p6[0]);
-//    close(p7[0]);
-//    close(p8[0]);
-//    close(p9[0]);
-//    close(p10[0]);
+    close(p1[0]);
+    close(p2[0]);
+    close(p3[0]);
+    close(p4[0]);
+    close(p5[0]);
+    close(p6[0]);
+    close(p7[0]);
+    close(p8[0]);
+    close(p9[0]);
+    close(p10[0]);
 
 
     printf("Sum of 0-1000: %d\n", sum);
