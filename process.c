@@ -21,7 +21,7 @@ int main() {
         arr[i] = i + 1;
     }
 
-    int pipes[10][2];
+    int pipes[processes][2];
     for (int k = 0; k < processes; k++) {
         pipe(pipes[k]);
     }
