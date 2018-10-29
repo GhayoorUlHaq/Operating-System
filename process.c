@@ -26,10 +26,10 @@ int main() {
         pipe(pipes[k]);
     }
 
-    int pid = fork();
+
 
     for (int j = 0; j < processes ; j++) {
-        pid = fork();
+        int pid = fork();
         if (pid == 0) {
             temp = solve(j,  arr);
             write(pipes[j][1], &temp, sizeof(temp));
@@ -37,6 +37,8 @@ int main() {
             exit(1);
         }
     }
+
+
     //Wait until all processes got processed
     for (int i = 0; i < processes; i++) {
         wait(NULL);
